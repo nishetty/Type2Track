@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  SecondViewController.swift
 //  finalproject
 //
 //  Created by Nishita Shetty on 3/20/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class LogViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
