@@ -9,15 +9,9 @@
 import UIKit
 import UserNotifications
 
-extension DoseViewController: UNUserNotificationCenterDelegate {
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.alert])
-    }
-    
-}
 
-class DoseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+class DoseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UNUserNotificationCenterDelegate {
     
     @IBOutlet weak var medName: UITextField!
     @IBOutlet weak var timesPerDay: UITextField!
@@ -42,6 +36,9 @@ class DoseViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Do any additional setup after loading the view.
     }
     
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound])
+    }
 
     
     override func didReceiveMemoryWarning() {
@@ -65,7 +62,7 @@ class DoseViewController: UIViewController, UITableViewDelegate, UITableViewData
         if medName.text != ""{
             var currentMedDict = [Int : String]()
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "h : mm a"
+            dateFormatter.dateFormat = "hh : mm a"
             if timesPerDay.text == "" {
                 timesPerDay.text = "1"
             }
@@ -73,6 +70,8 @@ class DoseViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let cell = tableView(tableView, cellForRowAt: IndexPath(row: i, section: 0)) as! DoseCell
                 let strDate = dateFormatter.string(from: cell.doseTimePicker.date)
                 currentMedDict[i+1] = strDate
+                
+                //Notifications
                 UNUserNotificationCenter.current().getNotificationSettings { (notificationSettings) in
                     switch notificationSettings.authorizationStatus {
                     case .notDetermined:
@@ -132,21 +131,25 @@ class DoseViewController: UIViewController, UITableViewDelegate, UITableViewData
         let notificationContent = UNMutableNotificationContent()
         
         // Configure Notification Content
-        notificationContent.title = "Time to take your " + medicationName + " !"
-        //notificationContent.subtitle = "Local Notifications"
-      //  notificationContent.body = "In this tutorial, you learn how to schedule local notifications with the User Notifications framework."
+        notificationContent.title = "Type2Track Reminder"
+        notificationContent.subtitle = "Time to take your " + medicationName + " !"
+        notificationContent.sound = UNNotificationSound.default()
+      //  notificationContent.body = ""
         
         // Add Trigger
        
-        let calendar = Calendar.current
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(abbreviation: "PDT")!
         let receivedDateComp = calendar.dateComponents([.hour, .minute], from: doseDate)
-        let hour = receivedDateComp.hour
-        let minute = receivedDateComp.minute
+        let hour = receivedDateComp.hour!
+        let minute = receivedDateComp.minute!
+        print ("the hour is " + String(describing: hour) + " and the minute is " + String(describing: minute))
         
         var components = DateComponents()
         components.hour = hour
         components.minute = minute
-        let notificationTrigger = UNCalendarNotificationTrigger(dateMatching: components as DateComponents, repeats: true)
+        
+        let notificationTrigger = UNCalendarNotificationTrigger.init(dateMatching: components, repeats: true)
         
         // Create Notification Request
         let notificationRequest = UNNotificationRequest(identifier: medicationName + String(describing: doseDate), content: notificationContent, trigger: notificationTrigger)
@@ -154,11 +157,10 @@ class DoseViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Add Request to User Notification Center
         UNUserNotificationCenter.current().add(notificationRequest){ (error) in
             if let error = error {
-                print("Unable to Add Notification Request (\(error), \(error.localizedDescription))")
+          print("Unable to Add Notification Request (\(error), \(error.localizedDescription))")
             }
+            print("successfully registered")
         }
-        
-
     }
     
     private func requestAuthorization(completionHandler: @escaping (_ success: Bool) -> ()) {

@@ -9,3 +9,4 @@
 import Foundation
 
 var doseTimeDict = [String : [Int : String]]()
+var numberofGlucoseEntries = 0

@@ -13,6 +13,9 @@
 		3200048A1EA3EEB800C288AB /* DoseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320004891EA3EEB800C288AB /* DoseCell.swift */; };
 		3200048C1EA42FC000C288AB /* MedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3200048B1EA42FC000C288AB /* MedCell.swift */; };
 		320C4F271EAB1F73000F8018 /* ValueTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320C4F261EAB1F73000F8018 /* ValueTracker.swift */; };
+		321D418F1EADBF3400A03E89 /* GlucoseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321D418E1EADBF3400A03E89 /* GlucoseCell.swift */; };
+		321D41911EADBF4400A03E89 /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321D41901EADBF4400A03E89 /* ActivityCell.swift */; };
+		321D41931EADC70800A03E89 /* AddGlucoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321D41921EADC70800A03E89 /* AddGlucoseViewController.swift */; };
 		321DA1321E8B8BB5000C28F6 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321DA1311E8B8BB5000C28F6 /* GraphViewController.swift */; };
 		321DA1341E8B8BC5000C28F6 /* MedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321DA1331E8B8BC5000C28F6 /* MedsViewController.swift */; };
 		324013871E808FA0007EB531 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324013861E808FA0007EB531 /* AppDelegate.swift */; };
@@ -31,6 +34,9 @@
 		320004891EA3EEB800C288AB /* DoseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoseCell.swift; sourceTree = "<group>"; };
 		3200048B1EA42FC000C288AB /* MedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedCell.swift; sourceTree = "<group>"; };
 		320C4F261EAB1F73000F8018 /* ValueTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueTracker.swift; sourceTree = "<group>"; };
+		321D418E1EADBF3400A03E89 /* GlucoseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlucoseCell.swift; sourceTree = "<group>"; };
+		321D41901EADBF4400A03E89 /* ActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
+		321D41921EADC70800A03E89 /* AddGlucoseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGlucoseViewController.swift; sourceTree = "<group>"; };
 		321DA1311E8B8BB5000C28F6 /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		321DA1331E8B8BC5000C28F6 /* MedsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedsViewController.swift; sourceTree = "<group>"; };
 		324013831E808FA0007EB531 /* finalproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = finalproject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,7 +93,10 @@
 				320C4F261EAB1F73000F8018 /* ValueTracker.swift */,
 				324013861E808FA0007EB531 /* AppDelegate.swift */,
 				32D181521EA06F7B00B17E86 /* InfoViewController.swift */,
+				321D418E1EADBF3400A03E89 /* GlucoseCell.swift */,
+				321D41901EADBF4400A03E89 /* ActivityCell.swift */,
 				3240138A1E808FA0007EB531 /* LogViewController.swift */,
+				321D41921EADC70800A03E89 /* AddGlucoseViewController.swift */,
 				321DA1311E8B8BB5000C28F6 /* GraphViewController.swift */,
 				321DA1331E8B8BC5000C28F6 /* MedsViewController.swift */,
 				3200048B1EA42FC000C288AB /* MedCell.swift */,
@@ -188,7 +197,10 @@
 				3200048C1EA42FC000C288AB /* MedCell.swift in Sources */,
 				3200048A1EA3EEB800C288AB /* DoseCell.swift in Sources */,
 				324013871E808FA0007EB531 /* AppDelegate.swift in Sources */,
+				321D418F1EADBF3400A03E89 /* GlucoseCell.swift in Sources */,
+				321D41931EADC70800A03E89 /* AddGlucoseViewController.swift in Sources */,
 				321DA1341E8B8BC5000C28F6 /* MedsViewController.swift in Sources */,
+				321D41911EADBF4400A03E89 /* ActivityCell.swift in Sources */,
 				32D181531EA06F7B00B17E86 /* InfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

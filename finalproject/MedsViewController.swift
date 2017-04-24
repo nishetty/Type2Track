@@ -52,7 +52,7 @@ class MedsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         var doseListCurrent = doseTimeDict[self.currentMed]!
         var stringofTimes = ""
         for key in Array(doseListCurrent.keys){
-            stringofTimes += doseListCurrent[key]!
+            stringofTimes += doseListCurrent[key]! + "    "
         }
         cell.timeforDose.text = stringofTimes
         return cell
