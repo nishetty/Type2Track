@@ -105,12 +105,55 @@ class DoseViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     
-    func datePickerChanged(datePicker:UIDatePicker) {
-        let dateFormatter = DateFormatter()
+    //scheduleLocalNotification function
+    func scheduleLocalNotification(medicationName: String, doseDate: Date){
+        let notificationContent = UNMutableNotificationContent()
         
-        dosestrDate = dateFormatter.string(from: datePicker.date)
+        // Configure Notification Content
+        notificationContent.title = "Type2Track Reminder"
+        notificationContent.subtitle = "Time to take your " + medicationName + " !"
+        notificationContent.sound = UNNotificationSound.default()
+        //  notificationContent.body = ""
         
-          }
+        // Add Trigger
+        
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(abbreviation: "PDT")!
+        let receivedDateComp = calendar.dateComponents([.hour, .minute], from: doseDate)
+        let hour = receivedDateComp.hour!
+        let minute = receivedDateComp.minute!
+        print ("the hour is " + String(describing: hour) + " and the minute is " + String(describing: minute))
+        
+        var components = DateComponents()
+        components.hour = hour
+        components.minute = minute
+        
+        let notificationTrigger = UNCalendarNotificationTrigger.init(dateMatching: components, repeats: true)
+        
+        // Create Notification Request
+        let notificationRequest = UNNotificationRequest(identifier: medicationName + String(describing: doseDate), content: notificationContent, trigger: notificationTrigger)
+        
+        // Add Request to User Notification Center
+        UNUserNotificationCenter.current().add(notificationRequest){ (error) in
+            if let error = error {
+                print("Unable to Add Notification Request (\(error), \(error.localizedDescription))")
+            }
+            print("successfully registered")
+            print(UNUserNotificationCenter.current())
+        }
+    }
+    
+    private func requestAuthorization(completionHandler: @escaping (_ success: Bool) -> ()) {
+        // Request Authorization
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (success, error) in
+            if let error = error {
+                print("Request Authorization Failed (\(error), \(error.localizedDescription))")
+            }
+            
+            completionHandler(success)
+        }
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! MedsViewController
             destination.medNameReceived = medName.text!
@@ -134,54 +177,7 @@ class DoseViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
     
-    func scheduleLocalNotification(medicationName: String, doseDate: Date){
-        let notificationContent = UNMutableNotificationContent()
-        
-        // Configure Notification Content
-        notificationContent.title = "Type2Track Reminder"
-        notificationContent.subtitle = "Time to take your " + medicationName + " !"
-        notificationContent.sound = UNNotificationSound.default()
-      //  notificationContent.body = ""
-        
-        // Add Trigger
-       
-        var calendar = Calendar.current
-        calendar.timeZone = TimeZone(abbreviation: "PDT")!
-        let receivedDateComp = calendar.dateComponents([.hour, .minute], from: doseDate)
-        let hour = receivedDateComp.hour!
-        let minute = receivedDateComp.minute!
-        print ("the hour is " + String(describing: hour) + " and the minute is " + String(describing: minute))
-        
-        var components = DateComponents()
-        components.hour = hour
-        components.minute = minute
-        
-        let notificationTrigger = UNCalendarNotificationTrigger.init(dateMatching: components, repeats: true)
-        
-        // Create Notification Request
-        let notificationRequest = UNNotificationRequest(identifier: medicationName + String(describing: doseDate), content: notificationContent, trigger: notificationTrigger)
-        
-        // Add Request to User Notification Center
-        UNUserNotificationCenter.current().add(notificationRequest){ (error) in
-            if let error = error {
-          print("Unable to Add Notification Request (\(error), \(error.localizedDescription))")
-            }
-            print("successfully registered")
-            print(UNUserNotificationCenter.current())
-        }
-    }
     
-    private func requestAuthorization(completionHandler: @escaping (_ success: Bool) -> ()) {
-        // Request Authorization
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (success, error) in
-            if let error = error {
-                print("Request Authorization Failed (\(error), \(error.localizedDescription))")
-            }
-            
-            completionHandler(success)
-        }
-    }
-
     
 
     /*
