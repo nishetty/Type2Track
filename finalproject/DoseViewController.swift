@@ -21,7 +21,7 @@ class DoseViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func returnToMedVC(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-   
+    var dosestrDate = String()
     @IBAction func setTimes(_ sender: Any) {
         self.tableView.reloadData()
     }
@@ -67,8 +67,12 @@ class DoseViewController: UIViewController, UITableViewDelegate, UITableViewData
                 timesPerDay.text = "1"
             }
             for i in 0...Int(timesPerDay.text!)!-1 {
-                let cell = tableView(tableView, cellForRowAt: IndexPath(row: i, section: 0)) as! DoseCell
+                let cell = tableView.cellForRow(at: IndexPath(row: i, section: 0)) as! DoseCell
+               // let cell = tableView(tableView, cellForRowAt: IndexPath(row: i, section: 0)) as! DoseCell
+               // let strDate = cell.dosestrDate
+               // cell.doseTimePicker.addTarget(self, action: Selector("datePickerChanged:"), for: UIControlEvents.valueChanged)
                 let strDate = dateFormatter.string(from: cell.doseTimePicker.date)
+                //let strDate = dosestrDate
                 currentMedDict[i+1] = strDate
                 
                 //Notifications
@@ -101,14 +105,17 @@ class DoseViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     
-
+    func datePickerChanged(datePicker:UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        
+        dosestrDate = dateFormatter.string(from: datePicker.date)
+        
+          }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! MedsViewController
             destination.medNameReceived = medName.text!
             destination.timesPerDayReceived = timesPerDay.text!
         }
-    
-    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -160,6 +167,7 @@ class DoseViewController: UIViewController, UITableViewDelegate, UITableViewData
           print("Unable to Add Notification Request (\(error), \(error.localizedDescription))")
             }
             print("successfully registered")
+            print(UNUserNotificationCenter.current())
         }
     }
     

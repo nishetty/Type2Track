@@ -10,12 +10,13 @@ import UIKit
 
 class LogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var glucoseDate = ""
-    var glucoseMeal = ""
-    var glucoseReading: Int = 0
     
+    var glucoseDict: [Date: [String]] = [:]
+    var dateCreated = Date()
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBAction func unwindToLog(segue: UIStoryboardSegue){}
     
    // @IBOutlet weak var activityTableView: UITableView!
     override func viewDidLoad() {
@@ -25,6 +26,9 @@ class LogViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         // Do any additional setup after loading the view, typically from a nib.
     }
+    override func viewDidAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -32,14 +36,16 @@ class LogViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberofGlucoseEntries
+        return glucoseDict.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "glucoseCell") as! GlucoseCell
-        cell.glucoseValue.text = String(self.glucoseReading)
-        cell.mealAssign.text = self.glucoseMeal
-        cell.readingDate.text = self.glucoseDate
+        print("glucose Dict", glucoseDict)
+        var dateCreatedArray = Array(glucoseDict.keys)
+        cell.glucoseValue.text = self.glucoseDict[dateCreatedArray[indexPath.row]]?[2]
+        cell.mealAssign.text = self.glucoseDict[dateCreatedArray[indexPath.row]]?[1]
+        cell.readingDate.text = self.glucoseDict[dateCreatedArray[indexPath.row]]?[0]
         return cell
     }
     

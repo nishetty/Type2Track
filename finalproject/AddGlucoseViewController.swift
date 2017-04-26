@@ -36,17 +36,17 @@ class AddGlucoseViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBAction func addGlucose(_ sender: Any) {
         numberofGlucoseEntries += 1
         print("the number of glucose entries is" + String(numberofGlucoseEntries))
-        performSegue(withIdentifier: "glucoseToLog", sender: self)
+        self.performSegue(withIdentifier: "unwindToLog", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("this is prepare for segue")
         let destination = segue.destination as! LogViewController
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yy"
+        let currentDateTime = Date()
         let dateString = dateFormatter.string(from: glucoseDate.date)
-        destination.glucoseDate = dateString
-        destination.glucoseMeal = self.mealSelected
-        destination.glucoseReading = Int(glucoseReading.text!)!
+        destination.glucoseDict[currentDateTime] = [dateString, String(self.mealSelected), glucoseReading.text!]
     }
    
     
