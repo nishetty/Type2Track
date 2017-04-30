@@ -23,12 +23,16 @@ class InfoViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     
     @IBOutlet weak var genderPicker: UIPickerView!
+    var genderSelected = ""
     @IBOutlet weak var name: UITextField!
     
     @IBOutlet weak var heightFeet: UITextField!
     @IBOutlet weak var heightInches: UITextField!
     @IBOutlet weak var weight: UITextField!
     
+    @IBOutlet weak var age: UITextField!
+    
+    @IBOutlet weak var BMRCalc: UILabel!
     @IBOutlet weak var BMIResult: UILabel!
     @IBOutlet weak var BMICalc: UILabel!
 
@@ -54,26 +58,25 @@ class InfoViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector("Hide"), userInfo: nil, repeats: false)
         
-      //  self.updatedLabel.isHidden = true
-        if heightFeet.text != "" || heightInches.text != "" || weight.text != "" {
+        if heightFeet.text != "" && heightInches.text != "" && weight.text != "" {
             self.BMIValue = calcBMI(heightFeet: (Double(heightFeet.text!))!, heightInches: (Double(heightInches.text!))!,weight: (Double(weight.text!))!)
         }
         BMICalc.text = String(format:"%.2f", BMIValue)
         if BMIValue != 0.00{
             if BMIValue < 18.5 {
                 BMIResult.text = "Underweight"
-                return}
-            if BMIValue < 24.9 {
+                }
+            else if BMIValue < 24.9 {
                 BMIResult.text = "Normal"
-                return}
-            if BMIValue < 29.9 {
+                }
+            else if BMIValue < 29.9 {
                 BMIResult.text = "Overweight"
-                return}
-            if BMIValue > 29.9 {
+                }
+            else {
                 BMIResult.text = "Obese"
-                return}
-
+                }
             }
+        
         if beforeMealLow.text != "" {
             beforeMealLowValue = Int(beforeMealLow.text!)!
         }
@@ -86,10 +89,24 @@ class InfoViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         if afterMealHigh.text != ""{
             afterMealHighValue = Int(afterMealHigh.text!)!
         }
-    
+        
+        
+        if heightFeet.text != "" && heightInches.text != "" && weight.text != "" && age.text != "" && genderSelected != "" {
+            
+            BMRCalc.text = String(BMRCalculator(height: Double(12*Int(heightFeet.text!)! + Int(heightInches.text!)!), weight: Double(weight.text!)!, gender: genderSelected, age: Double(age.text!)!))
     }
-    
+    }
     var gender: [String] = [String]()
+    
+    func BMRCalculator(height: Double, weight: Double, gender: String, age: Double) -> Double{
+        if gender == "Male"{
+            return 66*6.2*weight + 12.7*12*height - 6.7*age
+        } else
+
+        { return 665.1 + 4.35*weight + 4.7*height - 4.7*age}
+            
+    }
+        
     
     
     override func viewDidLoad() {
@@ -125,7 +142,10 @@ class InfoViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return gender[row]
     }
-    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.genderSelected = gender[row]
+    }
+
 
     
 }

@@ -15,14 +15,12 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var activityTableView: UITableView!
     let healthKitManager = HealthKitManager.sharedInstance
     
-    //var steps = Double()
-    //var steps = [HKQuantitySample]()
     var dateArray = [String]()
     var stepsArray = [String]()
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateStyle = .short
+        formatter.dateFormat = "E, MMM d, yyyy"
         return formatter
     }()
 
@@ -52,17 +50,18 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "activityCell") as! ActivityCell
-        //let step = steps[indexPath.row]
-        //let numberOfSteps = Int(step.quantity.doubleValue(for: healthKitManager.stepsUnit))
         let numberOfSteps = stepsArray[indexPath.row]
-        print("numberofsteps", numberOfSteps)
-        print("in cell for row at")
         cell.numberSteps?.text = "\((numberOfSteps)) steps"
-        print(cell.numberSteps?.text)
         cell.activityDate?.text = dateArray[indexPath.row]
-        print(cell.activityDate?.text)
-        
-        print("completed cellforrowat")
+        cell.activityDate?.font = UIFont.boldSystemFont(ofSize: 17.0)
+        if indexPath.row == 0 {
+            cell.backgroundColor = UIColor.cyan
+        } else {
+            if Int(numberOfSteps)! > 10000{
+            cell.backgroundColor = UIColor.green}
+            else{
+            cell.backgroundColor = UIColor.white}
+        }
         return cell
     }
     
@@ -110,10 +109,8 @@ extension ActivityViewController {
                     if let quantity = statistics.sumQuantity(){
                         let date = statistics.startDate
                         let dateString = self.dateFormatter.string(from: date)
-                        //self.dateArray = [dateString] + self.dateArray
                         self.dateArray.insert(dateString, at: 0)
                         let steps = quantity.doubleValue(for: HKUnit.count())
-                        //self.stepsArray += [steps] + self.stepsArray
                         self.stepsArray.insert(String(Int(steps)), at: 0)
                         print("\(date): steps = \(steps)")
                         //NOTE: If you are going to update the UI do it in the main thread
