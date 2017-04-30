@@ -12,6 +12,9 @@
 		320004881EA324E000C288AB /* DoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320004871EA324E000C288AB /* DoseViewController.swift */; };
 		3200048A1EA3EEB800C288AB /* DoseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320004891EA3EEB800C288AB /* DoseCell.swift */; };
 		3200048C1EA42FC000C288AB /* MedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3200048B1EA42FC000C288AB /* MedCell.swift */; };
+		3207B1B91EB69E4B005D882D /* runninggggg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3207B1B41EB69E4B005D882D /* runninggggg.png */; };
+		3207B1BA1EB69E4B005D882D /* info-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 3207B1B51EB69E4B005D882D /* info-512.png */; };
+		3207B1BB1EB69E4B005D882D /* docicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3207B1B61EB69E4B005D882D /* docicon.png */; };
 		320C4F271EAB1F73000F8018 /* ValueTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320C4F261EAB1F73000F8018 /* ValueTracker.swift */; };
 		321D418F1EADBF3400A03E89 /* GlucoseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321D418E1EADBF3400A03E89 /* GlucoseCell.swift */; };
 		321D41911EADBF4400A03E89 /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321D41901EADBF4400A03E89 /* ActivityCell.swift */; };
@@ -39,6 +42,9 @@
 		320004871EA324E000C288AB /* DoseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoseViewController.swift; sourceTree = "<group>"; };
 		320004891EA3EEB800C288AB /* DoseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoseCell.swift; sourceTree = "<group>"; };
 		3200048B1EA42FC000C288AB /* MedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedCell.swift; sourceTree = "<group>"; };
+		3207B1B41EB69E4B005D882D /* runninggggg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = runninggggg.png; path = finalproject/runninggggg.png; sourceTree = "<group>"; };
+		3207B1B51EB69E4B005D882D /* info-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "info-512.png"; path = "finalproject/info-512.png"; sourceTree = "<group>"; };
+		3207B1B61EB69E4B005D882D /* docicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = docicon.png; path = finalproject/docicon.png; sourceTree = "<group>"; };
 		320C4F261EAB1F73000F8018 /* ValueTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueTracker.swift; sourceTree = "<group>"; };
 		321D418E1EADBF3400A03E89 /* GlucoseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlucoseCell.swift; sourceTree = "<group>"; };
 		321D41901EADBF4400A03E89 /* ActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
@@ -85,6 +91,9 @@
 			isa = PBXGroup;
 			children = (
 				321D41B41EB5534600A03E89 /* Screen Shot 2017-04-29 at 4.01.20 PM.png */,
+				3207B1B41EB69E4B005D882D /* runninggggg.png */,
+				3207B1B51EB69E4B005D882D /* info-512.png */,
+				3207B1B61EB69E4B005D882D /* docicon.png */,
 				321D41A91EB4875400A03E89 /* rx.png */,
 				324013851E808FA0007EB531 /* finalproject */,
 				324013841E808FA0007EB531 /* Products */,
@@ -198,10 +207,13 @@
 				321D41B51EB5534600A03E89 /* Screen Shot 2017-04-29 at 4.01.20 PM.png in Resources */,
 				321D41AC1EB4875400A03E89 /* rx.png in Resources */,
 				324013931E808FA0007EB531 /* LaunchScreen.storyboard in Resources */,
+				3207B1BA1EB69E4B005D882D /* info-512.png in Resources */,
 				324013901E808FA0007EB531 /* Assets.xcassets in Resources */,
+				3207B1B91EB69E4B005D882D /* runninggggg.png in Resources */,
 				3240138E1E808FA0007EB531 /* Main.storyboard in Resources */,
 				321D41AF1EB4886C00A03E89 /* runninggggg.png in Resources */,
 				321D41B11EB488F100A03E89 /* docicon.png in Resources */,
+				3207B1BB1EB69E4B005D882D /* docicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
