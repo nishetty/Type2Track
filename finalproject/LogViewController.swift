@@ -18,7 +18,10 @@ class LogViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     @IBAction func unwindToLog(segue: UIStoryboardSegue){}
     
-   // @IBOutlet weak var activityTableView: UITableView!
+    let beforeMeals = ["Before Breakfast", "Before Lunch", "Before Dinner"]
+    let afterMeals = ["After Breakfast", "After Lunch", "After Dinner"]
+
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -42,10 +45,54 @@ class LogViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "glucoseCell") as! GlucoseCell
         print("glucose Dict", glucoseDict)
-        var dateCreatedArray = Array(glucoseDict.keys)
+        var dateCreatedArray = Array(glucoseDict.keys).sorted(by: >)
         cell.glucoseValue.text = self.glucoseDict[dateCreatedArray[indexPath.row]]?[2]
         cell.mealAssign.text = self.glucoseDict[dateCreatedArray[indexPath.row]]?[1]
+        if cell.mealAssign.text == "" {
+            cell.mealAssign.text = "Before Breakfast"
+        }
         cell.readingDate.text = self.glucoseDict[dateCreatedArray[indexPath.row]]?[0]
+        cell.glucoseIndicator.text = ""
+        let glucoseValue = Int(cell.glucoseValue.text!)!
+        if beforeMeals.contains(cell.mealAssign.text!) {
+            if beforeMealLowValue != 0 && beforeMealHighValue != 0 {
+                if glucoseValue >= beforeMealLowValue && glucoseValue <= beforeMealHighValue {
+                    cell.glucoseValue.textColor = UIColor.green
+                    cell.glucoseIndicator.text = "In Range"
+                    cell.glucoseIndicator.textColor = UIColor.green
+                }
+                else
+                {cell.glucoseValue.textColor = UIColor.red
+                    if glucoseValue < beforeMealLowValue {
+                        cell.glucoseIndicator.text = "Low!"
+                        cell.glucoseIndicator.textColor = UIColor.red
+                        cell.glucoseValue.highlightedTextColor = UIColor.lightGray
+                    } else {cell.glucoseIndicator.text = "High!"
+                            cell.glucoseIndicator.textColor = UIColor.red
+                            cell.glucoseValue.highlightedTextColor = UIColor.lightGray
+                            }
+                    }
+            }
+        }
+        if afterMeals.contains(cell.mealAssign.text!) {
+            if afterMealLowValue != 0 && afterMealHighValue != 0 {
+                if glucoseValue >= afterMealLowValue && glucoseValue <= afterMealHighValue {
+                    cell.glucoseValue.textColor = UIColor.green
+                    cell.glucoseIndicator.text = ""
+                }
+                else
+                {cell.glucoseValue.textColor = UIColor.red
+                    if glucoseValue < afterMealLowValue {
+                        cell.glucoseIndicator.text = "Low!"
+                        cell.glucoseIndicator.textColor = UIColor.red
+                        cell.glucoseValue.highlightedTextColor = UIColor.lightGray
+                    } else {cell.glucoseIndicator.text = "High!"
+                        cell.glucoseIndicator.textColor = UIColor.red
+                        cell.glucoseValue.highlightedTextColor = UIColor.lightGray
+                    }
+                }
+            }
+        }
         return cell
     }
     

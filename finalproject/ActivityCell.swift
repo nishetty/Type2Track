@@ -10,6 +10,9 @@ import UIKit
 
 class ActivityCell: UITableViewCell {
 
+    @IBOutlet weak var activityDate: UILabel!
+    @IBOutlet weak var numberSteps: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

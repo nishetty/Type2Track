@@ -27,7 +27,7 @@ class MedsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
-        if self.medNameReceived != "" || self.timesPerDayReceived != "" {
+        if self.medNameReceived != "" && self.timesPerDayReceived != "" {
             medDict[self.medNameReceived] = Int(self.timesPerDayReceived)
         }
         self.medTableView.reloadData()

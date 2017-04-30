@@ -15,6 +15,9 @@ class GlucoseCell: UITableViewCell {
     
     @IBOutlet weak var mealAssign: UILabel!
     
+    @IBOutlet weak var glucoseIndicator: UILabel!
+
+    
     @IBOutlet weak var readingDate: UILabel!
     
     override func awakeFromNib() {

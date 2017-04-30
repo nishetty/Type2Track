@@ -98,6 +98,7 @@ class DoseViewController: UIViewController, UITableViewDelegate, UITableViewData
         doseTimeDict[medName.text!] = currentMedDict
         print(doseTimeDict)
         self.performSegue(withIdentifier: "unwindToMeds", sender: self)
+            
     } else {
         let alert = UIAlertController(title: "Oops!", message: "Please enter all info.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -111,7 +112,8 @@ class DoseViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // Configure Notification Content
         notificationContent.title = "Type2Track Reminder"
-        notificationContent.subtitle = "Time to take your " + medicationName + " !"
+        notificationContent.body = "Time to take your " + medicationName + " !"
+        notificationContent.setValue(true, forKey: "shouldAlwaysAlertWhileAppIsForeground")
         notificationContent.sound = UNNotificationSound.default()
         //  notificationContent.body = ""
         

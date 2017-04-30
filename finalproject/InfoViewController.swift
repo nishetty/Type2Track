@@ -37,9 +37,24 @@ class InfoViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBOutlet weak var afterMealLow: UITextField!
     @IBOutlet weak var afterMealHigh: UITextField!
     
+    @IBOutlet weak var updatedLabel: UILabel!
+    
     
     var BMIValue = 0.00
+    
+    var timer = Timer()
+    
+    func Hide() {
+        updatedLabel.isHidden = true
+        timer.invalidate()  //You can remove timer here.
+    }
+    
     @IBAction func updateInfo(_ sender: UIButton) {
+        updatedLabel.isHidden = false
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector("Hide"), userInfo: nil, repeats: false)
+        
+      //  self.updatedLabel.isHidden = true
         if heightFeet.text != "" || heightInches.text != "" || weight.text != "" {
             self.BMIValue = calcBMI(heightFeet: (Double(heightFeet.text!))!, heightInches: (Double(heightInches.text!))!,weight: (Double(weight.text!))!)
         }
@@ -59,6 +74,19 @@ class InfoViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 return}
 
             }
+        if beforeMealLow.text != "" {
+            beforeMealLowValue = Int(beforeMealLow.text!)!
+        }
+        if beforeMealHigh.text != ""{
+            beforeMealHighValue = Int(beforeMealHigh.text!)!
+        }
+        if afterMealLow.text != ""{
+            afterMealLowValue = Int(afterMealLow.text!)!
+        }
+        if afterMealHigh.text != ""{
+            afterMealHighValue = Int(afterMealHigh.text!)!
+        }
+    
     }
     
     var gender: [String] = [String]()
@@ -66,11 +94,13 @@ class InfoViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Thread.sleep(forTimeInterval: 1.5)
         self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view, typically from a nib.
         self.genderPicker.delegate = self
         self.genderPicker.dataSource = self
         gender = ["Male", "Female"]
+        updatedLabel.isHidden = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -95,6 +125,8 @@ class InfoViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return gender[row]
     }
+    
+
     
 }
 

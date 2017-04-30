@@ -16,6 +16,12 @@
 		321D418F1EADBF3400A03E89 /* GlucoseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321D418E1EADBF3400A03E89 /* GlucoseCell.swift */; };
 		321D41911EADBF4400A03E89 /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321D41901EADBF4400A03E89 /* ActivityCell.swift */; };
 		321D41931EADC70800A03E89 /* AddGlucoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321D41921EADC70800A03E89 /* AddGlucoseViewController.swift */; };
+		321D41AC1EB4875400A03E89 /* rx.png in Resources */ = {isa = PBXBuildFile; fileRef = 321D41A91EB4875400A03E89 /* rx.png */; };
+		321D41AF1EB4886C00A03E89 /* runninggggg.png in Resources */ = {isa = PBXBuildFile; fileRef = 321D41AE1EB4886C00A03E89 /* runninggggg.png */; };
+		321D41B11EB488F100A03E89 /* docicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 321D41B01EB488F100A03E89 /* docicon.png */; };
+		321D41B31EB5343100A03E89 /* info-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 321D41B21EB5343100A03E89 /* info-512.png */; };
+		321D41B51EB5534600A03E89 /* Screen Shot 2017-04-29 at 4.01.20 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 321D41B41EB5534600A03E89 /* Screen Shot 2017-04-29 at 4.01.20 PM.png */; };
+		321D41B71EB5635800A03E89 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321D41B61EB5635800A03E89 /* ActivityViewController.swift */; };
 		321DA1321E8B8BB5000C28F6 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321DA1311E8B8BB5000C28F6 /* GraphViewController.swift */; };
 		321DA1341E8B8BC5000C28F6 /* MedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321DA1331E8B8BC5000C28F6 /* MedsViewController.swift */; };
 		324013871E808FA0007EB531 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324013861E808FA0007EB531 /* AppDelegate.swift */; };
@@ -37,6 +43,12 @@
 		321D418E1EADBF3400A03E89 /* GlucoseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlucoseCell.swift; sourceTree = "<group>"; };
 		321D41901EADBF4400A03E89 /* ActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
 		321D41921EADC70800A03E89 /* AddGlucoseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGlucoseViewController.swift; sourceTree = "<group>"; };
+		321D41A91EB4875400A03E89 /* rx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rx.png; path = ../../rx.png; sourceTree = "<group>"; };
+		321D41AE1EB4886C00A03E89 /* runninggggg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = runninggggg.png; path = ../../../runninggggg.png; sourceTree = "<group>"; };
+		321D41B01EB488F100A03E89 /* docicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = docicon.png; path = ../../../docicon.png; sourceTree = "<group>"; };
+		321D41B21EB5343100A03E89 /* info-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "info-512.png"; path = "../../../info-512.png"; sourceTree = "<group>"; };
+		321D41B41EB5534600A03E89 /* Screen Shot 2017-04-29 at 4.01.20 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screen Shot 2017-04-29 at 4.01.20 PM.png"; path = "../../Screen Shot 2017-04-29 at 4.01.20 PM.png"; sourceTree = "<group>"; };
+		321D41B61EB5635800A03E89 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		321DA1311E8B8BB5000C28F6 /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		321DA1331E8B8BC5000C28F6 /* MedsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedsViewController.swift; sourceTree = "<group>"; };
 		324013831E808FA0007EB531 /* finalproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = finalproject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +84,8 @@
 		3240137A1E808FA0007EB531 = {
 			isa = PBXGroup;
 			children = (
+				321D41B41EB5534600A03E89 /* Screen Shot 2017-04-29 at 4.01.20 PM.png */,
+				321D41A91EB4875400A03E89 /* rx.png */,
 				324013851E808FA0007EB531 /* finalproject */,
 				324013841E808FA0007EB531 /* Products */,
 				3200047F1EA3025400C288AB /* Frameworks */,
@@ -94,8 +108,9 @@
 				324013861E808FA0007EB531 /* AppDelegate.swift */,
 				32D181521EA06F7B00B17E86 /* InfoViewController.swift */,
 				321D418E1EADBF3400A03E89 /* GlucoseCell.swift */,
-				321D41901EADBF4400A03E89 /* ActivityCell.swift */,
 				3240138A1E808FA0007EB531 /* LogViewController.swift */,
+				321D41901EADBF4400A03E89 /* ActivityCell.swift */,
+				321D41B61EB5635800A03E89 /* ActivityViewController.swift */,
 				321D41921EADC70800A03E89 /* AddGlucoseViewController.swift */,
 				321DA1311E8B8BB5000C28F6 /* GraphViewController.swift */,
 				321DA1331E8B8BC5000C28F6 /* MedsViewController.swift */,
@@ -103,6 +118,9 @@
 				320004871EA324E000C288AB /* DoseViewController.swift */,
 				320004891EA3EEB800C288AB /* DoseCell.swift */,
 				3240138C1E808FA0007EB531 /* Main.storyboard */,
+				321D41B21EB5343100A03E89 /* info-512.png */,
+				321D41B01EB488F100A03E89 /* docicon.png */,
+				321D41AE1EB4886C00A03E89 /* runninggggg.png */,
 				3240138F1E808FA0007EB531 /* Assets.xcassets */,
 				324013911E808FA0007EB531 /* LaunchScreen.storyboard */,
 				324013941E808FA0007EB531 /* Info.plist */,
@@ -176,9 +194,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				321D41B31EB5343100A03E89 /* info-512.png in Resources */,
+				321D41B51EB5534600A03E89 /* Screen Shot 2017-04-29 at 4.01.20 PM.png in Resources */,
+				321D41AC1EB4875400A03E89 /* rx.png in Resources */,
 				324013931E808FA0007EB531 /* LaunchScreen.storyboard in Resources */,
 				324013901E808FA0007EB531 /* Assets.xcassets in Resources */,
 				3240138E1E808FA0007EB531 /* Main.storyboard in Resources */,
+				321D41AF1EB4886C00A03E89 /* runninggggg.png in Resources */,
+				321D41B11EB488F100A03E89 /* docicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +223,7 @@
 				321D418F1EADBF3400A03E89 /* GlucoseCell.swift in Sources */,
 				321D41931EADC70800A03E89 /* AddGlucoseViewController.swift in Sources */,
 				321DA1341E8B8BC5000C28F6 /* MedsViewController.swift in Sources */,
+				321D41B71EB5635800A03E89 /* ActivityViewController.swift in Sources */,
 				321D41911EADBF4400A03E89 /* ActivityCell.swift in Sources */,
 				32D181531EA06F7B00B17E86 /* InfoViewController.swift in Sources */,
 			);
