@@ -32,6 +32,15 @@ class DoseViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         UNUserNotificationCenter.current().delegate = self
         self.hideKeyboardWhenTappedAround()
+        if doseTimeDict.keys.count == 0 {
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        }
+        UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: {requests -> () in
+            print("\(requests.count) requests -------")
+            for request in requests{
+                print(request.identifier)
+            }
+        })
         
         // Do any additional setup after loading the view.
     }
@@ -39,7 +48,7 @@ class DoseViewController: UIViewController, UITableViewDelegate, UITableViewData
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert, .sound])
     }
-
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -68,13 +77,8 @@ class DoseViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             for i in 0...Int(timesPerDay.text!)!-1 {
                 let cell = tableView.cellForRow(at: IndexPath(row: i, section: 0)) as! DoseCell
-               // let cell = tableView(tableView, cellForRowAt: IndexPath(row: i, section: 0)) as! DoseCell
-               // let strDate = cell.dosestrDate
-               // cell.doseTimePicker.addTarget(self, action: Selector("datePickerChanged:"), for: UIControlEvents.valueChanged)
                 let strDate = dateFormatter.string(from: cell.doseTimePicker.date)
-                //let strDate = dosestrDate
                 currentMedDict[i+1] = strDate
-                
                 //Notifications
                 UNUserNotificationCenter.current().getNotificationSettings { (notificationSettings) in
                     switch notificationSettings.authorizationStatus {
@@ -129,11 +133,12 @@ class DoseViewController: UIViewController, UITableViewDelegate, UITableViewData
         var components = DateComponents()
         components.hour = hour
         components.minute = minute
+        components.calendar = calendar
         
         let notificationTrigger = UNCalendarNotificationTrigger.init(dateMatching: components, repeats: true)
         
         // Create Notification Request
-        let notificationRequest = UNNotificationRequest(identifier: medicationName + String(describing: doseDate), content: notificationContent, trigger: notificationTrigger)
+        let notificationRequest = UNNotificationRequest(identifier: medicationName, content: notificationContent, trigger: notificationTrigger)
         
         // Add Request to User Notification Center
         UNUserNotificationCenter.current().add(notificationRequest){ (error) in
@@ -155,7 +160,9 @@ class DoseViewController: UIViewController, UITableViewDelegate, UITableViewData
             completionHandler(success)
         }
     }
-
+    func removeNotification(medicationName: String) -> Void {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [medicationName])
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! MedsViewController
             destination.medNameReceived = medName.text!
@@ -180,16 +187,5 @@ class DoseViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

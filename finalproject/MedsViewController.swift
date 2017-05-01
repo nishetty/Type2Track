@@ -65,9 +65,13 @@ class MedsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let doseVC = DoseViewController()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "medCell") as! MedCell
         var medications = Array(medDict.keys)
         let alert = UIAlertController(title: "Delete medication?", message: "This will permanently delete this medication entry & alerts.", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Delete", style: UIAlertActionStyle.default, handler: {action in self.deleteEntry(medToDelete: medications[indexPath.row])}))
+        alert.addAction(UIAlertAction(title: "Delete", style: UIAlertActionStyle.default, handler: {action in
+            self.deleteEntry(medToDelete: medications[indexPath.row])}))
+        doseVC.removeNotification(medicationName: cell.medName.text!)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         
