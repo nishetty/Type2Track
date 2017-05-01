@@ -30,6 +30,7 @@
 		324013901E808FA0007EB531 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3240138F1E808FA0007EB531 /* Assets.xcassets */; };
 		324013931E808FA0007EB531 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 324013911E808FA0007EB531 /* LaunchScreen.storyboard */; };
 		32D181531EA06F7B00B17E86 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D181521EA06F7B00B17E86 /* InfoViewController.swift */; };
+		32F77AC11EB7A7E10069E4E9 /* Type2Track iPhoneicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 32F77AC01EB7A7E10069E4E9 /* Type2Track iPhoneicon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		324013921E808FA0007EB531 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		324013941E808FA0007EB531 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32D181521EA06F7B00B17E86 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		32F77AC01EB7A7E10069E4E9 /* Type2Track iPhoneicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Type2Track iPhoneicon.png"; path = "finalproject/Type2Track iPhoneicon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		3240137A1E808FA0007EB531 = {
 			isa = PBXGroup;
 			children = (
+				32F77AC01EB7A7E10069E4E9 /* Type2Track iPhoneicon.png */,
 				3207B1BC1EB69F31005D882D /* Screen Shot 2017-04-29 at 4.01.20 PM.png */,
 				3207B1BD1EB69F31005D882D /* rx.png */,
 				3207B1B41EB69E4B005D882D /* runninggggg.png */,
@@ -197,6 +200,7 @@
 				3207B1BE1EB69F31005D882D /* Screen Shot 2017-04-29 at 4.01.20 PM.png in Resources */,
 				324013931E808FA0007EB531 /* LaunchScreen.storyboard in Resources */,
 				3207B1BA1EB69E4B005D882D /* info-512.png in Resources */,
+				32F77AC11EB7A7E10069E4E9 /* Type2Track iPhoneicon.png in Resources */,
 				3207B1BF1EB69F31005D882D /* rx.png in Resources */,
 				324013901E808FA0007EB531 /* Assets.xcassets in Resources */,
 				3207B1B91EB69E4B005D882D /* runninggggg.png in Resources */,
