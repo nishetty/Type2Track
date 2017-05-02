@@ -100,7 +100,7 @@ class InfoViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     func BMRCalculator(height: Double, weight: Double, gender: String, age: Double) -> Double{
         if gender == "Male"{
-            return 66*6.2*weight + 12.7*12*height - 6.7*age
+            return 66+6.2*weight + 12.7*12*height - 6.7*age
         } else
 
         { return 665.1 + 4.35*weight + 4.7*height - 4.7*age}
