@@ -356,7 +356,7 @@
 				DEVELOPMENT_TEAM = C7FZEQK7X9;
 				INFOPLIST_FILE = finalproject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Nishita.finalproject;
+				PRODUCT_BUNDLE_IDENTIFIER = Nishita.Type2Track;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -370,7 +370,7 @@
 				DEVELOPMENT_TEAM = C7FZEQK7X9;
 				INFOPLIST_FILE = finalproject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Nishita.finalproject;
+				PRODUCT_BUNDLE_IDENTIFIER = Nishita.Type2Track;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
