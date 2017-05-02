@@ -91,8 +91,11 @@ class InfoViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         }
         
         
-        if heightFeet.text != "" && heightInches.text != "" && weight.text != "" && age.text != "" && genderSelected != "" {
+        if heightFeet.text != "" && heightInches.text != "" && weight.text != "" && age.text != ""  {
             
+            if genderSelected == ""{
+                genderSelected = "Male"
+            }
             BMRCalc.text = String(BMRCalculator(height: Double(12*Int(heightFeet.text!)! + Int(heightInches.text!)!), weight: Double(weight.text!)!, gender: genderSelected, age: Double(age.text!)!))
     }
     }
@@ -100,7 +103,7 @@ class InfoViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     func BMRCalculator(height: Double, weight: Double, gender: String, age: Double) -> Double{
         if gender == "Male"{
-            return 66+6.2*weight + 12.7*12*height - 6.7*age
+            return 66+6.2*weight + 12.7*height - 6.7*age
         } else
 
         { return 665.1 + 4.35*weight + 4.7*height - 4.7*age}
