@@ -78,7 +78,7 @@ class LogViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             if afterMealLowValue != 0 && afterMealHighValue != 0 {
                 if glucoseValue >= afterMealLowValue && glucoseValue <= afterMealHighValue {
                     cell.glucoseValue.textColor = UIColor.green
-                    cell.glucoseIndicator.text = ""
+                    cell.glucoseIndicator.text = "In range!"
                 }
                 else
                 {cell.glucoseValue.textColor = UIColor.red

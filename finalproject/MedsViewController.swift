@@ -77,12 +77,6 @@ class MedsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
             }
     
-   
-   
-
-    
-    
-    
        /*
     // MARK: - Navigation
 
