@@ -70,8 +70,8 @@ class MedsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         var medications = Array(medDict.keys)
         let alert = UIAlertController(title: "Delete medication?", message: "This will permanently delete this medication entry & alerts.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Delete", style: UIAlertActionStyle.default, handler: {action in
-            self.deleteEntry(medToDelete: medications[indexPath.row])}))
-        doseVC.removeNotification(medicationName: cell.medName.text!)
+            self.deleteEntry(medToDelete: medications[indexPath.row])
+            doseVC.removeNotification(medicationName: cell.medName.text!)}))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         
